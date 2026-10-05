@@ -133,3 +133,32 @@ body { color:var(--ink); background:#f7ead7; }
   html { scroll-behavior:auto; }
   *, *::before, *::after { scroll-behavior:auto !important; transition-duration:.01ms !important; animation-duration:.01ms !important; animation-iteration-count:1 !important; }
 }
+
+/* Compact testimonial cards */
+.review-card { width:280px; min-height:186px; padding:20px; }
+.review-card { flex-basis:280px; }
+.stars { margin-bottom:12px; font-size:12px; letter-spacing:1px; }
+.review-card > p { font-size:13px; line-height:1.5; }
+.reviewer { gap:9px; margin-top:18px; font-size:10px; }
+.reviewer-initials { width:28px; height:28px; font-size:11px; }
+.reviewer small { font-size:8px; }
+
+@media (max-width:700px) {
+  .review-card { width:270px; flex-basis:270px; min-height:178px; }
+}
+
+@media (max-width:420px) {
+  .review-card { width:calc(100vw - 48px); flex-basis:calc(100vw - 48px); min-height:174px; }
+}
+
+/* Alternate testimonial colours: 1, 2, 1, 2… */
+.review-card:nth-child(odd) { color:#fff4e4; background:#563326; }
+.review-card:nth-child(even) { color:#3b2218; background:#f3d5ad; }
+
+/* Section reveals triggered as the visitor scrolls. */
+.reveal-ready { opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s cubic-bezier(.22,1,.36,1); }
+.reveal-ready.is-visible { opacity:1; transform:translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-ready { opacity:1; transform:none; }
+}
